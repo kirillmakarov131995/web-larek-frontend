@@ -167,7 +167,7 @@ export class Card extends Component<ICard> {
 	}
 
 	clearCategoryClasses() {
-		if (this.cardType === ECardType.catalog) {
+		if (this._category) {
 			this._category.classList.remove(
 				...Object.values(settings.categoryItems).map(
 					(category) => `${this.blockName.card}__category_${category}`

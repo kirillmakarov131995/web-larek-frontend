@@ -111,6 +111,13 @@ export class AppPresenter {
 		// эвент закрытия модального окна об успешной операции
 		this.events.on(settings.events.success.close, () => {
 			this.modalWindow.close();
+			// this.appModel.basketModel.clearBasket();
+			// this.appModel.basketModel.clearOrderInfo();
+			// this.events.emit(settings.events.basket.items.changed);
+		});
+
+		// эвент закрытия модального окна об успешной операции
+		this.events.on(settings.events.basket.orderInfo.submited, () => {
 			this.appModel.basketModel.clearBasket();
 			this.appModel.basketModel.clearOrderInfo();
 			this.events.emit(settings.events.basket.items.changed);
@@ -311,6 +318,8 @@ export class AppPresenter {
 							)
 							.then((response) => {
 								if (response) {
+									this.events.emit(settings.events.basket.orderInfo.submited);
+
 									const success = new Success(
 										cloneTemplate(this.successTemplate),
 										this.events

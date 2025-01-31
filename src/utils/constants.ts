@@ -41,6 +41,7 @@ export const settings = {
 
 			orderInfo: {
 				changed: 'basket.orderInfo:changed',
+				submited: 'basket.orderInfo:submited',
 			},
 
 			items: {
