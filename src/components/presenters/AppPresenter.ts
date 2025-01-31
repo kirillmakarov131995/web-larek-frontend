@@ -111,12 +111,9 @@ export class AppPresenter {
 		// эвент закрытия модального окна об успешной операции
 		this.events.on(settings.events.success.close, () => {
 			this.modalWindow.close();
-			// this.appModel.basketModel.clearBasket();
-			// this.appModel.basketModel.clearOrderInfo();
-			// this.events.emit(settings.events.basket.items.changed);
 		});
 
-		// эвент закрытия модального окна об успешной операции
+		// эвент вызывается когда заказ успешно оформлен на бэкэнде
 		this.events.on(settings.events.basket.orderInfo.submited, () => {
 			this.appModel.basketModel.clearBasket();
 			this.appModel.basketModel.clearOrderInfo();
